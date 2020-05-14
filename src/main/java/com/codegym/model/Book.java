@@ -52,6 +52,6 @@ public class Book {
     }
 
     public void setDecent(String decent) {
-        decent = decent;
+        this.decent = decent;
     }
 }

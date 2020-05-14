@@ -8,4 +8,5 @@ public interface BookService {
     Iterable<Book> findAllBook();
     Book findByIdBook(Long id);
     void createBook(Book book);
+    void remove(Long id);
 }
