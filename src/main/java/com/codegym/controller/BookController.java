@@ -38,19 +38,10 @@ public class BookController {
         return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/{id}")
-    public ResponseEntity<Book> updateCustomer(@PathVariable("id") long id, @RequestBody Book book) {
-        Book bookForm = bookService.findByIdBook(id);
-
-        if (bookForm == null) {
-            return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
-        }
-        bookForm.setName(book.getName());
-        bookForm.setAuthor(book.getAuthor());
-        bookForm.setDecent(book.getDecent());
-        bookForm.setId(book.getId());
-        bookService.createBook(bookForm);
-        return new ResponseEntity<Book>(bookForm, HttpStatus.OK);
+    @PatchMapping()
+    public ResponseEntity<Book> updateCustomer(@RequestBody Book book) {
+        bookService.createBook(book);
+        return new ResponseEntity<Book>(book, HttpStatus.OK);
     }
 
     @DeleteMapping(value = "/{id}")
